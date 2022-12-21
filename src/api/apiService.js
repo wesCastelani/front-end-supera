@@ -5,6 +5,7 @@ const baseURL = "http://localhost:8080/transferencias/";
 async function getTrasacoesPorConta(id) {
   const res = await axios.get(baseURL + id);
   const data = res.data;
+
   return data;
 }
 
@@ -18,7 +19,6 @@ async function filtrarTransacoes(id, Object) {
   if (filtro.inicio == "" && filtro.fim == "" && filtro.nomeOperador == "") {
     const res = await axios.get(baseURL + id);
     const data = res.data;
-    console.log(data);
     return data;
   } else if (
     filtro.inicio == "" &&
