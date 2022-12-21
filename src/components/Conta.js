@@ -67,8 +67,12 @@ const Conta = () => {
       <table class="table mt-5">
         <thead>
           <tr>
-            <th scope="col">{format.valoresFormatter(saldoTotal)}</th>
-            <th scope="col">{format.valoresFormatter(saldoTotalFiltrado)}</th>
+            <th scope="col">
+              Saldo total: {format.valoresFormatter(saldoTotal)}
+            </th>
+            <th scope="col">
+              Saldo no período:{format.valoresFormatter(saldoTotalFiltrado)}
+            </th>
           </tr>
         </thead>
       </table>
