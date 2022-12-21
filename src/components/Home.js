@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 
 import * as api from "../api/apiService";
 
+import * as format from "../helpers/formatterHelper";
+
 const Home = () => {
   const params = useParams();
 
@@ -28,8 +30,8 @@ const Home = () => {
       let t = await api.filtrarTransacoes(params.id, formObject);
       setTrasacoes(t.transferencias);
       setSaldoTotalFiltrado(t.saldo);
-      console.log(transacoes);
     };
+
     getTransactions();
   };
 
@@ -65,8 +67,8 @@ const Home = () => {
       <table class="table mt-5">
         <thead>
           <tr>
-            <th scope="col">{saldoTotal}</th>
-            <th scope="col">{saldoTotalFiltrado}</th>
+            <th scope="col">{format.valoresFormatter(saldoTotal)}</th>
+            <th scope="col">{format.valoresFormatter(saldoTotalFiltrado)}</th>
           </tr>
         </thead>
       </table>
@@ -82,8 +84,8 @@ const Home = () => {
         <tbody>
           {transacoes.map((trasacao) => (
             <tr>
-              <td>{trasacao.dataTransferencia}</td>
-              <td>{trasacao.valor}</td>
+              <td>{format.dataFormatter(trasacao.dataTransferencia)}</td>
+              <td>{format.valoresFormatter(trasacao.valor)}</td>
               <td>{trasacao.tipo}</td>
               <td>{trasacao.nomeOperadorTransacao}</td>
             </tr>
