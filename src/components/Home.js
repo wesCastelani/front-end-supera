@@ -62,6 +62,34 @@ const Home = () => {
           Filtrar
         </button>
       </form>
+      <table class="table mt-5">
+        <thead>
+          <tr>
+            <th scope="col">{saldoTotal}</th>
+            <th scope="col">{saldoTotalFiltrado}</th>
+          </tr>
+        </thead>
+      </table>
+      <table class="table mt-5">
+        <thead>
+          <tr>
+            <th scope="col">Data</th>
+            <th scope="col">Valor</th>
+            <th scope="col">Tipo</th>
+            <th scope="col">Nome Operador Transacionando</th>
+          </tr>
+        </thead>
+        <tbody>
+          {transacoes.map((trasacao) => (
+            <tr>
+              <td>{trasacao.dataTransferencia}</td>
+              <td>{trasacao.valor}</td>
+              <td>{trasacao.tipo}</td>
+              <td>{trasacao.nomeOperadorTransacao}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };

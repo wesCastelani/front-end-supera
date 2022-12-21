@@ -18,6 +18,7 @@ async function filtrarTransacoes(id, Object) {
   if (filtro.inicio == "" && filtro.fim == "" && filtro.nomeOperador == "") {
     const res = await axios.get(baseURL + id);
     const data = res.data;
+    console.log(data);
     return data;
   } else if (
     filtro.inicio == "" &&
